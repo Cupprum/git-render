@@ -6,7 +6,7 @@ However i did not remember what the exact commands were.
 
 Later I found out about [git-truck](https://github.com/git-truck/git-truck) from another colleague. It is a very simple and convenient tool. It is installed and executed by one simple command `npx -y git-truck`. It allows to use filters to highlight different information about the project.
 
-When the colleague was using his own make shift git-truck, i remember he used something to interact with git and something to render the filesystem as a `treemap`. After a bit of searching i figured a great combination are [GitPython](https://gitpython.readthedocs.io/en/stable/quickstart.html#gitpython-quick-start-tutorial) and [Plotly](https://plotly.com/python/treemaps/).
+When the back then new colleague was using his own make shift git-truck, i remember he used something to interact with git and something to render the filesystem as a [treemap](https://en.wikipedia.org/wiki/Treemapping). After a bit of searching i figured a great combination are [GitPython](https://gitpython.readthedocs.io/en/stable/quickstart.html#gitpython-quick-start-tutorial) and [Plotly](https://plotly.com/python/treemaps/).
 
 GitPython allows to easily iterate over the git history, and also to create the tree of directories and files.
 
