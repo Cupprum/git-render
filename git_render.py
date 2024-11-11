@@ -24,4 +24,3 @@ px.treemap(
     color='commits', # TODO: can color representing number of commits update when i click around? check color settings
     color_continuous_scale='amp',
 ).show()
-
