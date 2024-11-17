@@ -1,6 +1,17 @@
-A new colleague was using something like this in interactive python during his first days to learn about history of a new project he was assigned to.
+# A simple way of visualizing git repository evolution.
 
-This caught my attention as it is really great way of getting additional perspective on the state of git project. It helps with seeing where the core issue of the project is being addressed, by showing which files are edited most, and contain the largest amount of collaborators. Based on these information its easier to find out which parts of the code are more interesting, and likely to be touched in the future, so it might make sense to learn a bit more about them.
+Some time ago, a new colleague joined our department and started working on a platform our department provides. During his initial days, I noticed he was using an interactive Python shell to create [treemap](https://en.wikipedia.org/wiki/Treemapping) visualizations of the project's git history.
+
+The visualizations looked something like this.
+
+![Unity catalog basic visualization](pictures/git_render_unity_catalog_basic.png)
+
+This immediately sparked my interest.
+Normally, when starting to learn about a new codebase, I would also look at git history, but i would mainly focus on basic information like the number of commits, contributors, stars and so on. However, these visualizations offered a new interesting perspective on understanding how the repository evolved over time.
+
+Creating these visualizations allowed the colleague to easily locate files that were most used in the project. And therefore had a higher probability that he would have to eventually touch them as well.
+
+This caught my attention as it is really great way of getting additional perspective on the state of git project. It helps with seeing where the core issue of the project is being addressed, by showing which files are edited most, and contain the largest amount of collaborators. Based on these information its easier to find out which parts of the code are more interesting, and likely to be touched in the future, so it might make sense to learn a bit more about these frequently used files.
 
 However i did not remember what the exact commands were.
 
@@ -12,4 +23,14 @@ GitPython allows to easily iterate over the git history, and also to create the 
 
 Plotly can be used to easily visualize this tree in browser. It allows for simple configuration based on which its easy to highlight different information about the project.
 
-I especially appreciate the simplicity of these two libraries. How nicely they fit together and can be used in symbiosis in order to create neat renders.
+
+ It can also be used to provide other useful information, like how many different people used to collaborate on the specific files.
+
+I especially appreciate the simplicity of these two libraries, and that its possible to quickly change them to render different interesting data.
+
+For instance the size of tiles can depend on the sizes of files. Or we can also render the amount of collaborators on each specific file.
+
+
+
+
+These couple of lines can be useful when analyzing small git repos, like for instance when each microservice is its own repo. However if you try to run it against something larger, like try to visualize the git history of [CPython](https://github.com/python/cpython), if will fail miserably.
