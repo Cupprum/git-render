@@ -9,9 +9,10 @@ The visualizations looked something like this.
 This immediately sparked my interest.
 Normally, when starting to learn about a new codebase, I would also look at git history, but i would mainly focus on basic information like the number of commits, contributors, stars and so on. However, these visualizations offered a new interesting perspective on understanding how the repository evolved over time.
 
-Creating these visualizations allowed the colleague to easily locate files that were most used in the project. And therefore had a higher probability that he would have to eventually touch them as well.
+Creating these visualizations helped the colleague with seeing where the core issue of the project is being addressed, by showing which files are edited most, and contain the largest amount of collaborators. Based on these information its easier to find out which parts of the code are more interesting, and likely to be touched in the future. Therefore it might make sense to learn a bit more about these frequently used files before starting to work on the project.
 
-This caught my attention as it is really great way of getting additional perspective on the state of git project. It helps with seeing where the core issue of the project is being addressed, by showing which files are edited most, and contain the largest amount of collaborators. Based on these information its easier to find out which parts of the code are more interesting, and likely to be touched in the future, so it might make sense to learn a bit more about these frequently used files.
+
+
 
 However i did not remember what the exact commands were.
 
