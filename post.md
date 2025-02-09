@@ -3,7 +3,7 @@
 Some time ago, a new colleague joined our department and started working on a platform we provide. During his initial days, I noticed he was using an interactive Python shell to create [treemap](https://en.wikipedia.org/wiki/Treemapping) visualizations of the project's git history.
 
 ### The visualizations looked something like this.
-![Unity catalog basic visualization](pictures/git_render_unity_catalog_basic.png)
+![Unity catalog basic visualization](img/git_render_unity_catalog_basic.png)
 *Visualization of [Unity Catalog](https://github.com/unitycatalog/unitycatalog) repository using custom code snippet.*
 
 This immediately sparked my interest.
@@ -18,7 +18,7 @@ I sadly did not remember the exact commands the colleague used.
 Later I found out about [git-truck](https://github.com/git-truck/git-truck) from another colleague. It creates very similar visualizations and is overall a simple and convenient tool. It is installed and executed by one simple command `npx -y git-truck`. It allows to use filters to highlight different information about the project. The tool is private by design, free and open source. I am a big fan of it and use it fairly frequently.
 
 Visualizations by `git-truck` look like this.
-![Unity catalog visualized using git-truck](pictures/git_truck_unity_catalog.png)
+![Unity catalog visualized using git-truck](img/git_truck_unity_catalog.png)
 *Visualization of [Unity Catalog](https://github.com/unitycatalog/unitycatalog) repository using `git-truck`.*
 
 ### Homemade git-truck
@@ -93,14 +93,14 @@ px.treemap(
 ).show()
 ```
 
-![Unity catalog visualized using custom code snippet](pictures/git_render_unity_catalog_advanced.png)
+![Unity catalog visualized using custom code snippet](img/git_render_unity_catalog_advanced.png)
 *Visualization of [Unity Catalog](https://github.com/unitycatalog/unitycatalog) repository using custom code snippet with additional information.*
 
 ### Performance Considerations
 These couple of lines can be useful when analyzing small git repos. However if you try to run this code snippet against a larger code base, like trying visualize the git history of [CPython](https://github.com/python/cpython), it will take a very long time. I canceled the execution after couple of minutes. git-truck loads even larger projects very quickly, therefore it is faster to install and execute git-truck compared to running the custom Python script and waiting for it to render everything.
 
 ### TL;DR
-This site discussed two approaches of visualizing git repository evolution through treemaps:
+This post discussed two approaches of visualizing git repository evolution through treemaps:
 
 1. Using git-truck, a convenient open-source tool that quickly creates repository visualizations with a simple command.
 2. Creating custom visualizations using Python, by combining GitPython and Plotly libraries in just a few lines of code.
