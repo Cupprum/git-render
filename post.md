@@ -1,6 +1,6 @@
 # A simple way of visualizing git repository evolution.
 
-Some time ago, a new colleague joined our department and started working on a platform our department provides. During his initial days, I noticed he was using an interactive Python shell to create [treemap](https://en.wikipedia.org/wiki/Treemapping) visualizations of the project's git history.
+Some time ago, a new colleague joined our department and started working on a platform we provide. During his initial days, I noticed he was using an interactive Python shell to create [treemap](https://en.wikipedia.org/wiki/Treemapping) visualizations of the project's git history.
 
 ### The visualizations looked something like this.
 ![Unity catalog basic visualization](pictures/git_render_unity_catalog_basic.png)
@@ -10,7 +10,7 @@ This immediately sparked my interest.
 Normally, when starting to learn about a new codebase, I would also look at git history, but i would mainly focus on basic information like the number of commits, contributors, stars and so on. However, these visualizations offered a new interesting perspective on understanding how the repository evolved over time.
 
 ### What does this help with?
-Creating these visualizations helped the colleague to see where the core issue of the project is being addressed by showing which files are edited most, and contain the largest amount of collaborators. Based on these information its easier to find out which parts of the code are more interesting, and likely to be touched in the future. Therefore it might make sense to learn a bit more about these frequently used files before starting to work on the project.
+Creating these visualizations helped the colleague to see where the core issue of the project is being addressed by showing which files are edited most, and contain the largest amount of collaborators. Based on this information its easier to find out which parts of the code are more interesting, and likely to be touched in the future. Therefore it might make sense to learn a bit more about these frequently used files before starting to work on the project.
 
 I sadly did not remember the exact commands the colleague used.
 
@@ -21,14 +21,17 @@ Visualizations by `git-truck` look like this.
 ![Unity catalog visualized using git-truck](pictures/git_truck_unity_catalog.png)
 *Visualization of [Unity Catalog](https://github.com/unitycatalog/unitycatalog) repository using `git-truck`.*
 
-### Homemade git-truck.
-When the back then new colleague was using his own make shift `git-truck`, i remember he used something to interact with git and something to render the filesystem as a [treemap](https://en.wikipedia.org/wiki/Treemapping).
+### Homemade git-truck
+git-truck is an amazing tool, but I was still interested in knowing how to create such magic just by writing a couple of lines in an interactive Python shell.
+
+
+When the back then new colleague was using his own make shift `git-truck`, i remember he used a python library to interact with git and another python library to render the filesystem as a [treemap](https://en.wikipedia.org/wiki/Treemapping).
 
 After a bit of searching i figured a great combination is [GitPython](https://gitpython.readthedocs.io/en/stable/quickstart.html#gitpython-quick-start-tutorial) combined with [Plotly](https://plotly.com/python/treemaps/).
 
-These dependencies ccan by installed by executing the following command: `pip install GitPython plotly`.
+These dependencies can by installed by executing the following command: `pip install GitPython plotly`.
 
-GitPython is a simple library which allows for interaction with git repository directly from Python. Traversing through tree of files and directories or iterating through the git commit history can be easily done by using this library.
+GitPython is a simple library which allows for interaction with git repository directly from Python. Traversing through tree of files and directories or iterating through the git commit history can also be easily done by using this library.
 
 The following code snippet creates a list which contains some additional information about all files and directories.
 ```
@@ -59,11 +62,11 @@ px.treemap(
 ).show()
 ```
 
-I especially like the simplicity of these two libraries, and that its possible to quickly change them to render different interesting data. I also like that the whole configuration is a simple Python.
+I especially like the simplicity of these two libraries, and that its possible to quickly change their configuration to render different interesting data. I also like that the whole configuration can be done in one very simple Python script.
 
 For instance the size of tiles can depend on the sizes of files. Or we can also render the amount of collaborators on each specific file.
 
-This can be achieved by editing the snippet into a following form.
+This can be achieved by editing the snippet into the following form.
 ```
 import os
 import plotly.express as px
@@ -94,4 +97,12 @@ px.treemap(
 *Visualization of [Unity Catalog](https://github.com/unitycatalog/unitycatalog) repository using custom code snippet with additional information.*
 
 ### Performance Considerations
-These couple of lines can be useful when analyzing small git repos. However if you try to run this code snippet against a larger code base, like trying visualize the git history of [CPython](https://github.com/python/cpython), it will take a very long time. I don't know how long it would take as i canceled it after couple of minutes. Luckily `git-truck` loads even larger projects very quickly.
+These couple of lines can be useful when analyzing small git repos. However if you try to run this code snippet against a larger code base, like trying visualize the git history of [CPython](https://github.com/python/cpython), it will take a very long time. I canceled the execution after couple of minutes. git-truck loads even larger projects very quickly, therefore it is faster to install and execute git-truck compared to running the custom Python script and waiting for it to render everything.
+
+### TL;DR
+This site discussed two approaches of visualizing git repository evolution through treemaps:
+
+1. Using git-truck, a convenient open-source tool that quickly creates repository visualizations with a simple command.
+2. Creating custom visualizations using Python, by combining GitPython and Plotly libraries in just a few lines of code.
+
+These visualization techniques help developers understand repository structure, identify frequently modified files, and locate areas of high collaboration, making it easier to navigate new codebases.
