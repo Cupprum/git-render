@@ -25,6 +25,8 @@
       width: 100%;
       height: auto;
       display: block;
+      border: 1px solid #fffacd;
+      border-radius: 8px;
     }
 
     p {
@@ -52,6 +54,7 @@
     <div>
       4 minute read
     </div>
+    <a href="https://news.ycombinator.com/item?id=TODO">[Hackernews post]</a>
   </div>
   <div class="content">
     <p>
@@ -60,7 +63,6 @@
     <h3 style="color: #555;">The visualizations looked something like this.</h3>
     <img src="img/git_render_unity_catalog_basic.png" alt="Unity catalog basic visualization" id="basic_render">
     <p style="text-align: center;">Visualization of <a href="https://github.com/unitycatalog/unitycatalog">Unity Catalog</a> repository using custom code snippet.</p>
-    <br>
     <p>
       This immediately sparked my interest. Normally, when starting to learn about a new codebase, I would also look at git history, but I would mainly focus on basic information like the number of commits, contributors, stars and so on. However, these visualizations offered a new interesting perspective on understanding how the repository evolved over time.
     </p>
@@ -80,10 +82,9 @@
     </p>
     <img src="img/git_truck_unity_catalog.png" alt="Unity catalog visualized using git-truck">
     <p style="text-align: center;">Visualization of <a href="https://github.com/unitycatalog/unitycatalog">Unity Catalog</a> repository using <code>git-truck</code>.</p>
-    <br>
     <h3 style="color: #555;">Homemade git-truck</h3>
     <p>
-      git-truck is an amazing tool, but I was still interested in knowing how to create such magic just by writing a couple of lines in an interactive Python shell.
+      Git-truck is an amazing tool, but I was still interested in knowing how to create such magic just by writing a couple of lines in an interactive Python shell.
     </p>
     <p>
       When the back then new colleague was using his own make shift <code>git-truck</code>, I remember he used a python library to interact with git and another python library to render the filesystem as a <a href="https://en.wikipedia.org/wiki/Treemapping">treemap</a>.
@@ -163,21 +164,25 @@
         color_continuous_scale='amp',
     ).show()
     </code></pre>
+    <p>
+      Which generates the following visualization.
+    </p>
     <img src="img/git_render_unity_catalog_advanced.png" alt="Unity catalog visualized using custom code snippet">
     <p style="text-align: center;">Visualization of <a href="https://github.com/unitycatalog/unitycatalog">Unity Catalog</a> repository using custom code snippet with additional information.</p>
-    <br>
     <h3 style="color: #555;">Performance Considerations</h3>
     <p>
-      These couple of lines can be useful when analyzing small git repos. However if you try to run this code snippet against a larger code base, like trying visualize the git history of <a href="https://github.com/python/cpython">CPython</a>, it will take a very long time. I canceled the execution after couple of minutes. git-truck loads even larger projects very quickly, therefore it is faster to install and execute git-truck compared to running the custom Python script and waiting for it to render everything.
+      These couple of lines of Python code can be useful when analyzing small git repos. However if you try to run this code snippet against a larger code base, like trying visualize the git history of <a href="https://github.com/python/cpython">CPython</a>, it will take a very long time. I canceled the execution after couple of minutes. Git-truck loads even larger projects very quickly, therefore it is faster to install and execute git-truck compared to running the custom Python script and waiting for it to render everything.
     </p>
     <h3 style="color: #555;">TL;DR</h3>
     <p>
-      This post discussed two approaches of visualizing git repository evolution through treemaps:
+      This post discussed two approaches of visualizing git repositories through treemaps:
     </p>
-    <ol>
-      <li>Using git-truck, a convenient open-source tool that quickly creates repository visualizations with a simple command.</li>
-      <li>Creating custom visualizations using Python, by combining GitPython and Plotly libraries in just a few lines of code.</li>
-    </ol>
+    <p>
+      - Using git-truck, a convenient open-source tool that quickly creates repository visualizations with a simple command.
+    </p>
+    <p>
+      - Creating custom visualizations using Python, by combining GitPython and Plotly libraries in just a few lines of code.
+    </p>
     <p>
       These visualization techniques help developers understand repository structure, identify frequently modified files, and locate areas of high collaboration, making it easier to navigate new codebases.
     </p>
