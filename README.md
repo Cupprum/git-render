@@ -1,7 +1,7 @@
 # Git Render
 Is a simple python script which can be used to visualize git history of a project.
 
-Learn more in this [post]().
+Learn more in this [post](TODO).
 
 ## Website
 This website is supposed to be as simple as possible, so i that i do not have to spend my time maintaining it. The post is a plain html file, which contains basic css. It is hosted on [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages).
