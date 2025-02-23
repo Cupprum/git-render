@@ -4,7 +4,7 @@ This repo contains two things:
 
 * A simple python script which can be used to visualize git history of a project.
 
-* A [post](TODO) in a form of a website, which explains this script and the need for it a bit better.
+* A [post](https://cupprum.github.io/git-render/) in a form of a website, which explains this script and the need for it a bit better.
 
 ## Script
 Following section describes how to install and execute the Python script.
