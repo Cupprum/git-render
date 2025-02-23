@@ -44,6 +44,12 @@
       font-family: 'Courier New', Courier, monospace;
       overflow-x: auto;
     }
+
+    .code {
+      padding-left: 4ch;
+      padding-top: 2ch;
+      padding-bottom: 2ch;
+    }
   </style>
 </head>
 
@@ -101,35 +107,31 @@
     <p>
       The following code snippet creates a list which contains some additional information about all files and directories.
     </p>
-    <pre><code>
-    import os
-    from git import Repo
+<pre><code><div class="code">import os
+from git import Repo
 
-    repo = Repo("./unitycatalog")
+repo = Repo("./unitycatalog")
 
-    blobs = [{
-        'parent': os.path.dirname(blob.path) or "/",
-        'path': blob.path,
-        'commits': len(commits := list(repo.iter_commits(paths=blob.path))),
-    } for blob in repo.tree().traverse()]
-    </code></pre>
+blobs = [{
+    'parent': os.path.dirname(blob.path) or "/",
+    'path': blob.path,
+    'commits': len(commits := list(repo.iter_commits(paths=blob.path))),
+} for blob in repo.tree().traverse()]</div></code></pre>
     <p>
       Plotly can be used to create simple visualizations of this tree in a browser. It allows for easy configuration based on which its clear to highlight different information about the project.
     </p>
     <p>
       The following code snippet renders the previously calculated list as a treemap. You already saw this visualization in the first part of <a href="#basic_render">this page</a>.
     </p>
-    <pre><code>
-    import plotly.express as px
+<pre><code><div class="code">import plotly.express as px
 
-    px.treemap(
-        blobs,
-        names='path',
-        parents='parent',
-        color='commits',
-        color_continuous_scale='amp',
-    ).show()
-    </code></pre>
+px.treemap(
+    blobs,
+    names='path',
+    parents='parent',
+    color='commits',
+    color_continuous_scale='amp',
+).show()</div></code></pre>
     <p>
       I especially like the simplicity of these two libraries, and that its possible to quickly change their configuration to render different interesting data. I also like that the whole configuration can be done in one very simple Python script.
     </p>
@@ -139,31 +141,29 @@
     <p>
       This can be achieved by editing the snippet into the following form.
     </p>
-    <pre><code>
-    import os
-    import plotly.express as px
-    from git import Repo
+<pre><code><div class="code"">import os
+import plotly.express as px
+from git import Repo
 
-    repo = Repo("./unitycatalog")
+repo = Repo("./unitycatalog")
 
-    blobs = [{
-        'parent': os.path.dirname(blob.path) or "/",
-        'path': blob.path,
-        'size': blob.size,
-        'commits': len(commits := list(repo.iter_commits(paths=blob.path))),
-        'collabs': len(set(c.author.email for c in commits))
-    } for blob in repo.tree().traverse()]
+blobs = [{
+    'parent': os.path.dirname(blob.path) or "/",
+    'path': blob.path,
+    'size': blob.size,
+    'commits': len(commits := list(repo.iter_commits(paths=blob.path))),
+    'collabs': len(set(c.author.email for c in commits))
+} for blob in repo.tree().traverse()]
 
-    px.treemap(
-        blobs,
-        names='path',
-        parents='parent',
-        values='size',
-        hover_data=['commits', 'collabs'],
-        color='commits',
-        color_continuous_scale='amp',
-    ).show()
-    </code></pre>
+px.treemap(
+    blobs,
+    names='path',
+    parents='parent',
+    values='size',
+    hover_data=['commits', 'collabs'],
+    color='commits',
+    color_continuous_scale='amp',
+).show()</div></code></pre>
     <p>
       Which generates the following visualization.
     </p>
